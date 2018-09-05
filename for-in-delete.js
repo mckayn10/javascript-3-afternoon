@@ -40,7 +40,11 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+  let concat = '';
+  for(var key in obj){
+    concat += obj[key];
+  }
+  return concat;
 }
 
 
@@ -51,10 +55,16 @@ function showValues( obj ) {
   Write a function called greaterThan10 that takes in an object. 
   Write a for in loop that loops over the object and changes any value that is great than 10 to 0. 
   Return the updated object.
-*/
+*/ 
 
-//Code Here
-
+let greaterThan10 = obj => {
+  for(let key in obj){
+    if(obj[key] > 10){
+      obj[key] = 0;
+    }
+  }
+  return obj;
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -65,8 +75,12 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
-
+let double = obj => {
+  for(let key in obj){
+    obj[key] *= 2;
+  }
+  return obj;
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -79,7 +93,21 @@ function showValues( obj ) {
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
-//Code Here
+let secrets = obj => {
+  let sentence = '';
+  for(let key in obj){
+    if(key.startsWith('sh')){
+      sentence += obj[key];
+    }
+  }
+  return sentence;
+}
+const object = {
+  shirt: 'red',
+  shallow: 'blue',
+  name: 'mckay'
+}
+
 
 
 
@@ -89,17 +117,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+ var deleteAllThethings = {
+   one: 1,
+   two: 2,
+   three: 3
+ }
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+ for(var key in deleteAllThethings) {
+   delete deleteAllThethings[key]
+ }
 
-// console.log(deleteAllThethings)
+
 
 
 
@@ -110,7 +138,15 @@ function showValues( obj ) {
   Delete the property password and return the object.
 */
 
-//Code Here
+let removePassword = obj => {
+  delete obj.password;
+  return obj;
+}
+
+const object2 = {
+  password: 'lkj',
+  shirt: 'blue'
+}
 
 
 
@@ -129,7 +165,11 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
+for(let key in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[key] > 100){
+    delete deleteTheBigNumbers[key];
+  }
+}
 
 
 
@@ -142,7 +182,23 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
+let startsWithK = obj => {
+  for(let key in obj){
+    if(key.startsWith('k')){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
+
+const obj1 = {
+  kite: 'yes',
+  kale: 'no',
+  happy: 'yes'
+}
+
+
+
 
 
 
@@ -157,6 +213,14 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
+let hiddenTreasure = obj => {
+  for(let key in obj){
+    if(!obj[key].includes('treasure')){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
+
 
 
